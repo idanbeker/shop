@@ -65,9 +65,24 @@
                         </div>
                      {% endfor %}
 
+
+
                     </div>
+            {% if num_pages > 1 %}
 
 
+            <form action={% url 'index' %} method="post">
+                                {% csrf_token %}
+
+                <br>
+                                    <input type="hidden" value="{{ user.page_index }}" name="currIndex"/>
+                                    <input type="number" value="1" min="1" max="{{ num_pages }}" name="topage" size="1"/>
+                                    <input type="submit" class="btn" value="go to page  (1-{{ num_pages }})" name="gotopage"/>
+
+
+                            </form>
+
+            {% endif %}
 
 
 </div>
