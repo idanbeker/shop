@@ -1,5 +1,37 @@
 {%  extends 'shop/base.html' %}
 
  {% block body %}
-<h3>This is the cart</h3>
+{% for cart_item in cart %}
+<div class="row">
+
+                    <div class="col-sm-2 col-lg-2 col-md-2">
+                        <div class="thumbnail">
+                            <img src="{{ cart_item.item.pic_url  }}" style="width: 160px; height: 60px;" alt="">
+                            <div class="caption">
+                                <br>
+                                <h5 class="pull-left"><b>{{cart_item.item.name }}</b></h5>
+                                 <h5 class="pull-right"> {{ cart_item.quantity }}x{{cart_item.item.price }} </h5>
+                                 <br>
+                                <h3><span class="label label-default" >Total:{{ cart_item.total }}</span></h3>
+
+
+                            </div>
+
+                    </div>
+
+                        </div>
+                     {% endfor %}
+</div>
+     <div class="row">
+       <div class="col-sm-3 col-lg-3 col-md-3">
+
+           <form action="http://dafk.net/what/">
+               <h3><span class="label label-info" >Total:{{ total }}</span></h3>
+    <button type="submit" class="btn btn-primary btn-lg">Checkout</button>
+    </form>
+
+
+       </div>
+     </div>
+
 {% endblock %}

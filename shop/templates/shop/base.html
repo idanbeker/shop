@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <title>Home page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,15 +11,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+    <style>
+body {background-color: seashell;}
+</style>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Welcome {{ user.name }}</a>
+      <a class="navbar-brand" href="{% url 'index' %}">Welcome {{ user.name }}</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="/shop/">Shop </a></li>
-      <li><a href="/shop/cart">Cart &nbsp {{ user.cart_size }}</a></li>
+      <li><a href="{% url 'index' %}">Shop </a></li>
+      <li><a href="{% url 'cart' %}">Cart &nbsp {{ user.cart_size }}</a></li>
 
     </ul>
   </div>
