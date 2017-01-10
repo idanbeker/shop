@@ -14,7 +14,9 @@ def index(request):
 
     context = {'user': user,
                'items': items,
-               'num_pages': (Item.objects.all().__len__() % 6) + 1
+               'num_pages': int((Item.objects.all().__len__()) / 6)
+               if (Item.objects.all().__len__() % 6 == 0 )
+               else int((Item.objects.all().__len__()) / 6) + 1
                }
     # Add item to cart case
     if request.POST.get('additem'):
